@@ -111,13 +111,13 @@ void Blynk_to_TM4C(void){int j; char data;
     if(pin_num == 0x01)  {  
       LED = pin_int;
 			sw1 = pin_int;
-      PortF_Output(LED<<2); // Blue LED
-#ifdef DEBUG3
+     // PortF_Output(LED<<2); // Blue LED
+/*#ifdef DEBUG3
       Output_Color(ST7735_CYAN);
       ST7735_OutString("Rcv VP1 data=");
       ST7735_OutUDec(LED);
       ST7735_OutChar('\n');
-#endif
+#endif */
     }                               // Parse incoming data
 		if(pin_num == 0x02){
 			sw2 = pin_int;
@@ -128,7 +128,7 @@ void Blynk_to_TM4C(void){int j; char data;
 		if(pin_num == 0x04){
 			sw4 = pin_int;
 		}
-#ifdef DEBUG1
+/*#ifdef DEBUG1
     UART_OutString(" Pin_Number = ");
     UART_OutString(Pin_Number);
     UART_OutString("   Pin_Integer = ");
@@ -136,7 +136,7 @@ void Blynk_to_TM4C(void){int j; char data;
     UART_OutString("   Pin_Float = ");
     UART_OutString(Pin_Float);
     UART_OutString("\n\r");
-#endif
+#endif */
   }  
 }
 
@@ -144,16 +144,19 @@ void SendInformation(void){
   uint32_t thisF;
   thisF = PortF_Input();
 // your account will be temporarily halted if you send too much data
-  if(thisF != LastF){
-    TM4C_to_Blynk(74, thisF);  // VP74
-#ifdef DEBUG3
+  //if(thisF != LastF){
+  TM4C_to_Blynk(74, hours);  // VP74
+	TM4C_to_Blynk(75, minutes);  // VP74
+	TM4C_to_Blynk(76, seconds);  // VP74
+	
+/*#ifdef DEBUG3
     Output_Color(ST7735_WHITE);
     ST7735_OutString("Send 74 data=");
     ST7735_OutUDec(thisF);
     ST7735_OutChar('\n');
-#endif
-  }
-  LastF = thisF;
+#endif */
+  //}
+  //LastF = thisF;
 }
 
   
@@ -164,15 +167,15 @@ int main(void){
 	PortD_Init();
   PortD6_Init();	
   PortF_Init();
-  LastF = PortF_Input();
-/*#ifdef DEBUG3
+  LastF = PortF_Input(); 
+#ifdef DEBUG3
   Output_Init();        // initialize ST7735
   ST7735_OutString("EE445L Lab 4D\nBlynk example\n");
 #endif
 #ifdef DEBUG1
   UART_Init(5);         // Enable Debug Serial Port
   UART_OutString("\n\rEE445L Lab 4D\n\rBlynk example");
-#endif */
+#endif 
   ESP8266_Init();       // Enable ESP8266 Serial Port
   ESP8266_Reset();      // Reset the WiFi module
   ESP8266_SetupWiFi();  // Setup communications to Blynk Server 
@@ -181,8 +184,8 @@ int main(void){
 	Timer1_Init100Hz();
 	InitializeGlobals();	
   
-  Timer2_Init(&Blynk_to_TM4C,800000); 
-  // check for receive data from Blynk App every 10ms
+  Timer2_Init(&Blynk_to_TM4C,80000); 
+  // check for receive data from Blynk App every 1ms
 
   Timer3_Init(&SendInformation,40000000); 
   // Send data back to Blynk App every 1/2 second
@@ -192,7 +195,7 @@ int main(void){
     if(CS == main_menu) CS = menu();
 		if(CS == show_display) CS = display();
 		if(CS == set_time) CS = time();
-		if(CS == set_alarm) CS = alarm();
+		if(CS == set_alarm) CS = alarm();		
   }
 }
 

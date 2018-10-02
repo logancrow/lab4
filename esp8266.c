@@ -28,8 +28,8 @@
 #include "ST7735.h"
 #include "esp8266.h"
 // the following two lines connect you to the internet
-char    ssid[32]        = "EE-IOT-Platform-03";
-char    pass[32]        = "dUQQE?&W44x7";
+char    ssid[32]        =/* "WIFIF93CA0"//(logan's wifi)*/"EE-IOT-Platform-03";
+char    pass[32]        =/* "V4Q5SYAJI7GLRJCV";(logan's wifi)*/"dUQQE?&W44x7";
 // create your own Blynk server app and edit this next line with your authentication code
 char    auth[64]        = "d34a397b50c3482b9f4967208c8a5d03";
 
@@ -341,18 +341,18 @@ void ESP8266_Reset(void) {
 #ifdef DEBUG1
   UART_OutString("In Reset_8266 routine\r\n");
   UART_OutString("Reset pin being held low for 5 sec\r\n");
-#endif
+#endif 
   RST = LOW;      // Reset the 8266
   DelayMs(5000);  // Wait for 8266 to reset
   RST = RST1;     // Enable the 8266
 #ifdef DEBUG1
   UART_OutString("Reset pin is now high for 5 sec\r\n");
   UART_OutString("Waiting for ESP to finish initializing\r\n");
-#endif
+#endif 
   DelayMs(5000);  // Wait before setting up 8266
 #ifdef DEBUG1
   UART_OutString("Leaving Reset_8266 routine\r\n");
-#endif
+#endif 
   PE3 = LOW;             // Turn off 
 }
 

@@ -127,7 +127,7 @@ int display(){
 	
 int time(){
 	DelayWait10ms(50);            //debounce
-	DisableInterrupts();
+	TIMER0_CTL_R = 0x00000000;    //disable timer during set time
 	seconds = 0;
 	while(!sw1){
 		ST7735_SetCursor(0,0);
@@ -152,7 +152,7 @@ int time(){
 			ST7735_FillScreen(ST7735_BLACK);   //clear screen
 		}
 	}
-	EnableInterrupts();
+	TIMER0_CTL_R = 0x00000001; //start timer
 	ST7735_FillScreen(ST7735_BLACK);   //clear screen
 	//return to next state
 	if(sw1) return main_menu;
