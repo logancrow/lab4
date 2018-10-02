@@ -195,14 +195,14 @@ int main(void){
   EnableInterrupts();
 	uint8_t CS = main_menu;
 	
-	int i = 0;
+	/*int i = 0;
 	while(1) {
 		//ST7735_OutUDec(pin_num);
 		ST7735_SetCursor(0,);
 		ST7735_OutUDec(pin_int);
 		if (i > 150) i = 0;
 		else i++;
-	}
+	}*/
 	
   while(1) {   
     if(CS == main_menu) CS = menu();

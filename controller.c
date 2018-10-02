@@ -183,7 +183,7 @@ int alarm(){
 		ST7735_OutString(time);
 		if(sw2){
 			DelayWait10ms(10);        //debounce
-			alarm_hours = (pin_int + 1)%24;
+			alarm_hours = (alarm_hours + 1)%24;
 			ST7735_SetCursor(0,4);
 			ST7735_OutString("Set_Alarm: ");
 			sprintf(time,"%02d:%02d",alarm_hours,alarm_minutes);

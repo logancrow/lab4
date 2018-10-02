@@ -83,8 +83,10 @@ Section Cross References
     blynk.o(i.main) refers to controller.o(i.InitializeGlobals) for InitializeGlobals
     blynk.o(i.main) refers to timer2.o(i.Timer2_Init) for Timer2_Init
     blynk.o(i.main) refers to timer3.o(i.Timer3_Init) for Timer3_Init
-    blynk.o(i.main) refers to st7735.o(i.ST7735_SetCursor) for ST7735_SetCursor
-    blynk.o(i.main) refers to st7735.o(i.ST7735_OutUDec) for ST7735_OutUDec
+    blynk.o(i.main) refers to controller.o(i.menu) for menu
+    blynk.o(i.main) refers to controller.o(i.display) for display
+    blynk.o(i.main) refers to controller.o(i.time) for time
+    blynk.o(i.main) refers to controller.o(i.alarm) for alarm
     blynk.o(i.main) refers to blynk.o(.data) for LastF
     blynk.o(i.main) refers to blynk.o(i.Blynk_to_TM4C) for Blynk_to_TM4C
     blynk.o(i.main) refers to blynk.o(i.SendInformation) for SendInformation
@@ -619,13 +621,13 @@ Removing Unused input sections from the image.
     Removing st7735.o(i.Output_On), (8 bytes).
     Removing st7735.o(i.ST7735_Color565), (24 bytes).
     Removing st7735.o(i.ST7735_DrawBitmap), (292 bytes).
-    Removing st7735.o(i.ST7735_DrawChar), (272 bytes).
     Removing st7735.o(i.ST7735_DrawCircle), (172 bytes).
     Removing st7735.o(i.ST7735_DrawFastHLine), (128 bytes).
     Removing st7735.o(i.ST7735_DrawFastVLine), (128 bytes).
     Removing st7735.o(i.ST7735_DrawSmallCircle), (172 bytes).
     Removing st7735.o(i.ST7735_InitB), (40 bytes).
     Removing st7735.o(i.ST7735_InvertDisplay), (26 bytes).
+    Removing st7735.o(i.ST7735_OutUDec), (140 bytes).
     Removing st7735.o(i.ST7735_PlotBar), (88 bytes).
     Removing st7735.o(i.ST7735_PlotClear), (92 bytes).
     Removing st7735.o(i.ST7735_PlotLine), (264 bytes).
@@ -638,38 +640,18 @@ Removing Unused input sections from the image.
     Removing st7735.o(i.ST7735_SwapColor), (18 bytes).
     Removing st7735.o(i.ferror), (8 bytes).
     Removing st7735.o(i.fgetc), (6 bytes).
+    Removing st7735.o(i.fillmessage), (72 bytes).
     Removing st7735.o(i.fputc), (16 bytes).
+    Removing st7735.o(.bss), (12 bytes).
     Removing esp8266.o(i.ESP8266_AvailableInput), (8 bytes).
     Removing portf.o(i.PortF_Output), (12 bytes).
-    Removing alarm.o(i.Alarm_Off), (12 bytes).
-    Removing alarm.o(i.Alarm_On), (12 bytes).
     Removing alarm.o(.data), (4 bytes).
-    Removing controller.o(i.DelayWait10ms), (32 bytes).
-    Removing controller.o(i.alarm), (432 bytes).
-    Removing controller.o(i.display), (296 bytes).
-    Removing controller.o(i.menu), (324 bytes).
-    Removing controller.o(i.time), (324 bytes).
-    Removing line.o(i.DrawLineDown), (216 bytes).
-    Removing line.o(i.DrawLineUp), (216 bytes).
-    Removing line.o(i.ST7735_Line), (262 bytes).
-    Removing line.o(i.drawCircle), (196 bytes).
-    Removing line.o(i.drawClockDigits), (304 bytes).
-    Removing line.o(i.drawHourHand), (184 bytes).
-    Removing line.o(i.drawMinuteHand), (120 bytes).
-    Removing line.o(i.drawSecondHand), (116 bytes).
     Removing line.o(i.test), (48 bytes).
-    Removing line.o(.constdata), (528 bytes).
     Removing timer0a.o(.data), (4 bytes).
-    Removing dadd.o(.text), (334 bytes).
-    Removing dmul.o(.text), (228 bytes).
-    Removing dflti.o(.text), (34 bytes).
-    Removing cdcmple.o(.text), (40 bytes).
-    Removing cdrcmple.o(.text), (40 bytes).
-    Removing depilogue.o(.text), (190 bytes).
     Removing ddiv.o(.text), (222 bytes).
     Removing dfixul.o(.text), (48 bytes).
 
-63 unused section(s) (total 7702 bytes) removed from the image.
+43 unused section(s) (total 3214 bytes) removed from the image.
 
 ==============================================================================
 
@@ -680,49 +662,49 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     RESET                                    0x00000000   Section      644  startup.o(RESET)
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isalpha_o.o ABSOLUTE
     ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isalnum_o.o ABSOLUTE
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isgraph_o.o ABSOLUTE
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isblank_o.o ABSOLUTE
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  iscntrl_o.o ABSOLUTE
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  ctype_o.o ABSOLUTE
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isdigit_o.o ABSOLUTE
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isspace_o.o ABSOLUTE
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isxdigit_o.o ABSOLUTE
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  islower_o.o ABSOLUTE
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isprint_o.o ABSOLUTE
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  ispunct_o.o ABSOLUTE
     ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isupper_o.o ABSOLUTE
-    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isspace_o.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isalpha_o.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  iscntrl_o.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isdigit_o.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isblank_o.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  ispunct_o.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isprint_o.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  islower_o.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isgraph_o.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  ctype_o.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isxdigit_o.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/errno.c                 0x00000000   Number         0  errno.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
     ../clib/microlib/string/strcpy.c         0x00000000   Number         0  strcpy.o ABSOLUTE
@@ -731,8 +713,8 @@ Image Symbol Table
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
     ../clib/scanf.c                          0x00000000   Number         0  strtol.o ABSOLUTE
     ../clib/scanf.c                          0x00000000   Number         0  atoi.o ABSOLUTE
-    ../clib/scanf.c                          0x00000000   Number         0  _chval.o ABSOLUTE
     ../clib/scanf.c                          0x00000000   Number         0  _strtoul.o ABSOLUTE
+    ../clib/scanf.c                          0x00000000   Number         0  _chval.o ABSOLUTE
     ../fplib/microlib/fpadd.c                0x00000000   Number         0  dadd.o ABSOLUTE
     ../fplib/microlib/fpdiv.c                0x00000000   Number         0  ddiv.o ABSOLUTE
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
@@ -771,108 +753,143 @@ Image Symbol Table
     .text                                    0x000002b4   Section        0  strcpy.o(.text)
     .text                                    0x000002c8   Section        0  strtok.o(.text)
     .text                                    0x0000030c   Section        0  atoi.o(.text)
-    .text                                    0x00000326   Section        0  strtol.o(.text)
-    .text                                    0x00000398   Section       36  init.o(.text)
-    .text                                    0x000003bc   Section        0  ctype_o.o(.text)
-    .text                                    0x000003c4   Section        0  _strtoul.o(.text)
-    .text                                    0x00000462   Section        0  _chval.o(.text)
-    i.Blynk_to_TM4C                          0x00000480   Section        0  blynk.o(i.Blynk_to_TM4C)
-    i.Delay1ms                               0x0000056c   Section        0  st7735.o(i.Delay1ms)
-    i.DelayMs                                0x0000058c   Section        0  esp8266.o(i.DelayMs)
-    i.ESP8266_GetMessage                     0x000005ac   Section        0  esp8266.o(i.ESP8266_GetMessage)
-    i.ESP8266_Init                           0x000005fc   Section        0  esp8266.o(i.ESP8266_Init)
-    i.ESP8266_OutChar                        0x00000684   Section        0  esp8266.o(i.ESP8266_OutChar)
-    i.ESP8266_OutString                      0x000006b8   Section        0  esp8266.o(i.ESP8266_OutString)
-    i.ESP8266_OutUDec                        0x000006d0   Section        0  esp8266.o(i.ESP8266_OutUDec)
-    i.ESP8266_Reset                          0x000006fc   Section        0  esp8266.o(i.ESP8266_Reset)
-    i.ESP8266_SetupWiFi                      0x000007f4   Section        0  esp8266.o(i.ESP8266_SetupWiFi)
-    i.InitializeGlobals                      0x00000a0c   Section        0  controller.o(i.InitializeGlobals)
-    i.Output_Color                           0x00000a60   Section        0  st7735.o(i.Output_Color)
-    i.Output_Init                            0x00000a6c   Section        0  st7735.o(i.Output_Init)
-    i.PLL_Init                               0x00000a7c   Section        0  pll.o(i.PLL_Init)
-    i.PortD6_Init                            0x00000af8   Section        0  alarm.o(i.PortD6_Init)
-    i.PortD_Init                             0x00000b68   Section        0  controller.o(i.PortD_Init)
-    i.PortF_Init                             0x00000bbc   Section        0  portf.o(i.PortF_Init)
-    i.PortF_Input                            0x00000c18   Section        0  portf.o(i.PortF_Input)
-    i.Rx5Fifo_Init                           0x00000c28   Section        0  esp8266.o(i.Rx5Fifo_Init)
-    i.Rx5Fifo_Put                            0x00000c54   Section        0  esp8266.o(i.Rx5Fifo_Put)
-    i.Rx5Fifo_Size                           0x00000d24   Section        0  esp8266.o(i.Rx5Fifo_Size)
-    i.RxFifo_Init                            0x00000d38   Section        0  uart.o(i.RxFifo_Init)
-    i.RxFifo_Put                             0x00000d5c   Section        0  uart.o(i.RxFifo_Put)
-    i.RxFifo_Size                            0x00000d98   Section        0  uart.o(i.RxFifo_Size)
-    i.ST7735_DrawCharS                       0x00000dac   Section        0  st7735.o(i.ST7735_DrawCharS)
-    i.ST7735_DrawPixel                       0x00000ea0   Section        0  st7735.o(i.ST7735_DrawPixel)
-    i.ST7735_DrawString                      0x00000eec   Section        0  st7735.o(i.ST7735_DrawString)
-    i.ST7735_FillRect                        0x00000f44   Section        0  st7735.o(i.ST7735_FillRect)
-    i.ST7735_FillScreen                      0x00000ff4   Section        0  st7735.o(i.ST7735_FillScreen)
-    i.ST7735_InitR                           0x00001018   Section        0  st7735.o(i.ST7735_InitR)
-    i.ST7735_OutChar                         0x00001094   Section        0  st7735.o(i.ST7735_OutChar)
-    i.ST7735_OutString                       0x0000116c   Section        0  st7735.o(i.ST7735_OutString)
-    i.ST7735_OutUDec                         0x00001184   Section        0  st7735.o(i.ST7735_OutUDec)
-    i.ST7735_SetCursor                       0x00001210   Section        0  st7735.o(i.ST7735_SetCursor)
-    i.ST7735_SetTextColor                    0x00001230   Section        0  st7735.o(i.ST7735_SetTextColor)
-    i.SendInformation                        0x0000123c   Section        0  blynk.o(i.SendInformation)
-    i.TM4C_to_Blynk                          0x00001270   Section        0  blynk.o(i.TM4C_to_Blynk)
-    i.Timer0A_Handler                        0x000012ac   Section        0  timer0a.o(i.Timer0A_Handler)
-    i.Timer0A_Init1Hz                        0x00001340   Section        0  timer0a.o(i.Timer0A_Init1Hz)
-    i.Timer1A_Handler                        0x000013a8   Section        0  alarm.o(i.Timer1A_Handler)
-    i.Timer1_Init100Hz                       0x000013dc   Section        0  alarm.o(i.Timer1_Init100Hz)
-    i.Timer2A_Handler                        0x00001430   Section        0  timer2.o(i.Timer2A_Handler)
-    i.Timer2_Init                            0x00001448   Section        0  timer2.o(i.Timer2_Init)
-    i.Timer3A_Handler                        0x000014a8   Section        0  timer3.o(i.Timer3A_Handler)
-    i.Timer3_Init                            0x000014c0   Section        0  timer3.o(i.Timer3_Init)
-    i.Tx5Fifo_Get                            0x00001520   Section        0  esp8266.o(i.Tx5Fifo_Get)
-    i.Tx5Fifo_Init                           0x00001558   Section        0  esp8266.o(i.Tx5Fifo_Init)
-    i.Tx5Fifo_Put                            0x0000157c   Section        0  esp8266.o(i.Tx5Fifo_Put)
-    i.Tx5Fifo_Size                           0x000015b8   Section        0  esp8266.o(i.Tx5Fifo_Size)
-    i.TxFifo_Get                             0x000015cc   Section        0  uart.o(i.TxFifo_Get)
-    i.TxFifo_Init                            0x00001608   Section        0  uart.o(i.TxFifo_Init)
-    i.TxFifo_Put                             0x0000162c   Section        0  uart.o(i.TxFifo_Put)
-    i.TxFifo_Size                            0x00001668   Section        0  uart.o(i.TxFifo_Size)
-    i.UART0_Handler                          0x0000167c   Section        0  uart.o(i.UART0_Handler)
-    i.UART5_Handler                          0x000016d4   Section        0  esp8266.o(i.UART5_Handler)
-    i.UART5_Init                             0x0000172c   Section        0  esp8266.o(i.UART5_Init)
-    i.UART_Init                              0x00001804   Section        0  uart.o(i.UART_Init)
-    i.UART_OutChar                           0x000018d0   Section        0  uart.o(i.UART_OutChar)
-    i.UART_OutString                         0x00001904   Section        0  uart.o(i.UART_OutString)
-    i.__aeabi_errno_addr                     0x0000191c   Section        0  errno.o(i.__aeabi_errno_addr)
-    i.__scatterload_copy                     0x00001924   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x00001932   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x00001934   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i.commandList                            0x00001942   Section        0  st7735.o(i.commandList)
-    commandList                              0x00001943   Thumb Code    86  st7735.o(i.commandList)
-    i.commonInit                             0x00001998   Section        0  st7735.o(i.commonInit)
-    commonInit                               0x00001999   Thumb Code   340  st7735.o(i.commonInit)
-    i.copyHardwareToSoftware                 0x00001b1c   Section        0  uart.o(i.copyHardwareToSoftware)
-    copyHardwareToSoftware                   0x00001b1d   Thumb Code    36  uart.o(i.copyHardwareToSoftware)
-    i.copyHardwareToSoftware5                0x00001b44   Section        0  esp8266.o(i.copyHardwareToSoftware5)
-    copyHardwareToSoftware5                  0x00001b45   Thumb Code    36  esp8266.o(i.copyHardwareToSoftware5)
-    i.copySoftwareToHardware                 0x00001b6c   Section        0  uart.o(i.copySoftwareToHardware)
-    copySoftwareToHardware                   0x00001b6d   Thumb Code    38  uart.o(i.copySoftwareToHardware)
-    i.copySoftwareToHardware5                0x00001b98   Section        0  esp8266.o(i.copySoftwareToHardware5)
-    copySoftwareToHardware5                  0x00001b99   Thumb Code    38  esp8266.o(i.copySoftwareToHardware5)
-    i.deselect                               0x00001bc4   Section        0  st7735.o(i.deselect)
-    deselect                                 0x00001bc5   Thumb Code    24  st7735.o(i.deselect)
-    i.fillmessage                            0x00001be0   Section        0  st7735.o(i.fillmessage)
-    i.main                                   0x00001c28   Section        0  blynk.o(i.main)
-    i.pushColor                              0x00001d10   Section        0  st7735.o(i.pushColor)
-    pushColor                                0x00001d11   Thumb Code    18  st7735.o(i.pushColor)
-    i.setAddrWindow                          0x00001d24   Section        0  st7735.o(i.setAddrWindow)
-    setAddrWindow                            0x00001d25   Thumb Code   106  st7735.o(i.setAddrWindow)
-    i.writecommand                           0x00001d98   Section        0  st7735.o(i.writecommand)
-    writecommand                             0x00001d99   Thumb Code    46  st7735.o(i.writecommand)
-    i.writedata                              0x00001dd0   Section        0  st7735.o(i.writedata)
-    writedata                                0x00001dd1   Thumb Code    24  st7735.o(i.writedata)
-    .constdata                               0x00001df0   Section     2114  st7735.o(.constdata)
-    Font                                     0x00001df0   Data        1275  st7735.o(.constdata)
-    Bcmd                                     0x000022eb   Data         103  st7735.o(.constdata)
-    Rcmd1                                    0x00002352   Data          59  st7735.o(.constdata)
-    Rcmd2green                               0x0000238d   Data          13  st7735.o(.constdata)
-    Rcmd2red                                 0x0000239a   Data          13  st7735.o(.constdata)
-    Rcmd3                                    0x000023a7   Data          43  st7735.o(.constdata)
-    .constdata                               0x00002632   Section      129  ctype_o.o(.constdata)
-    .constdata                               0x000026b4   Section        4  ctype_o.o(.constdata)
-    table                                    0x000026b4   Data           4  ctype_o.o(.constdata)
+    .text                                    0x00000326   Section        0  dadd.o(.text)
+    .text                                    0x00000474   Section        0  dmul.o(.text)
+    .text                                    0x00000558   Section        0  dflti.o(.text)
+    .text                                    0x0000057c   Section       40  cdcmple.o(.text)
+    .text                                    0x000005a4   Section       40  cdrcmple.o(.text)
+    .text                                    0x000005cc   Section        0  uidiv.o(.text)
+    .text                                    0x000005f8   Section        0  llshl.o(.text)
+    .text                                    0x00000616   Section        0  llsshr.o(.text)
+    .text                                    0x0000063a   Section        0  strtol.o(.text)
+    .text                                    0x000006aa   Section        0  depilogue.o(.text)
+    .text                                    0x000006aa   Section        0  iusefp.o(.text)
+    .text                                    0x00000768   Section       36  init.o(.text)
+    .text                                    0x0000078c   Section        0  llushr.o(.text)
+    .text                                    0x000007ac   Section        0  ctype_o.o(.text)
+    .text                                    0x000007b4   Section        0  _strtoul.o(.text)
+    .text                                    0x00000852   Section        0  _chval.o(.text)
+    i.Alarm_Off                              0x00000870   Section        0  alarm.o(i.Alarm_Off)
+    i.Alarm_On                               0x0000087c   Section        0  alarm.o(i.Alarm_On)
+    i.Blynk_to_TM4C                          0x00000888   Section        0  blynk.o(i.Blynk_to_TM4C)
+    i.Delay1ms                               0x00000974   Section        0  st7735.o(i.Delay1ms)
+    i.DelayMs                                0x00000994   Section        0  esp8266.o(i.DelayMs)
+    i.DelayWait10ms                          0x000009b4   Section        0  controller.o(i.DelayWait10ms)
+    i.DrawLineDown                           0x000009d4   Section        0  line.o(i.DrawLineDown)
+    i.DrawLineUp                             0x00000aac   Section        0  line.o(i.DrawLineUp)
+    i.ESP8266_GetMessage                     0x00000b84   Section        0  esp8266.o(i.ESP8266_GetMessage)
+    i.ESP8266_Init                           0x00000bd4   Section        0  esp8266.o(i.ESP8266_Init)
+    i.ESP8266_OutChar                        0x00000c5c   Section        0  esp8266.o(i.ESP8266_OutChar)
+    i.ESP8266_OutString                      0x00000c90   Section        0  esp8266.o(i.ESP8266_OutString)
+    i.ESP8266_OutUDec                        0x00000ca8   Section        0  esp8266.o(i.ESP8266_OutUDec)
+    i.ESP8266_Reset                          0x00000cd4   Section        0  esp8266.o(i.ESP8266_Reset)
+    i.ESP8266_SetupWiFi                      0x00000dcc   Section        0  esp8266.o(i.ESP8266_SetupWiFi)
+    i.InitializeGlobals                      0x00000fe4   Section        0  controller.o(i.InitializeGlobals)
+    i.Output_Color                           0x00001038   Section        0  st7735.o(i.Output_Color)
+    i.Output_Init                            0x00001044   Section        0  st7735.o(i.Output_Init)
+    i.PLL_Init                               0x00001054   Section        0  pll.o(i.PLL_Init)
+    i.PortD6_Init                            0x000010d0   Section        0  alarm.o(i.PortD6_Init)
+    i.PortD_Init                             0x00001140   Section        0  controller.o(i.PortD_Init)
+    i.PortF_Init                             0x00001194   Section        0  portf.o(i.PortF_Init)
+    i.PortF_Input                            0x000011f0   Section        0  portf.o(i.PortF_Input)
+    i.Rx5Fifo_Init                           0x00001200   Section        0  esp8266.o(i.Rx5Fifo_Init)
+    i.Rx5Fifo_Put                            0x0000122c   Section        0  esp8266.o(i.Rx5Fifo_Put)
+    i.Rx5Fifo_Size                           0x000012fc   Section        0  esp8266.o(i.Rx5Fifo_Size)
+    i.RxFifo_Init                            0x00001310   Section        0  uart.o(i.RxFifo_Init)
+    i.RxFifo_Put                             0x00001334   Section        0  uart.o(i.RxFifo_Put)
+    i.RxFifo_Size                            0x00001370   Section        0  uart.o(i.RxFifo_Size)
+    i.ST7735_DrawChar                        0x00001384   Section        0  st7735.o(i.ST7735_DrawChar)
+    i.ST7735_DrawCharS                       0x00001494   Section        0  st7735.o(i.ST7735_DrawCharS)
+    i.ST7735_DrawPixel                       0x00001588   Section        0  st7735.o(i.ST7735_DrawPixel)
+    i.ST7735_DrawString                      0x000015d4   Section        0  st7735.o(i.ST7735_DrawString)
+    i.ST7735_FillRect                        0x0000162c   Section        0  st7735.o(i.ST7735_FillRect)
+    i.ST7735_FillScreen                      0x000016dc   Section        0  st7735.o(i.ST7735_FillScreen)
+    i.ST7735_InitR                           0x00001700   Section        0  st7735.o(i.ST7735_InitR)
+    i.ST7735_Line                            0x0000177c   Section        0  line.o(i.ST7735_Line)
+    i.ST7735_OutChar                         0x00001884   Section        0  st7735.o(i.ST7735_OutChar)
+    i.ST7735_OutString                       0x0000195c   Section        0  st7735.o(i.ST7735_OutString)
+    i.ST7735_SetCursor                       0x00001974   Section        0  st7735.o(i.ST7735_SetCursor)
+    i.ST7735_SetTextColor                    0x00001994   Section        0  st7735.o(i.ST7735_SetTextColor)
+    i.SendInformation                        0x000019a0   Section        0  blynk.o(i.SendInformation)
+    i.TM4C_to_Blynk                          0x000019d4   Section        0  blynk.o(i.TM4C_to_Blynk)
+    i.Timer0A_Handler                        0x00001a10   Section        0  timer0a.o(i.Timer0A_Handler)
+    i.Timer0A_Init1Hz                        0x00001aa4   Section        0  timer0a.o(i.Timer0A_Init1Hz)
+    i.Timer1A_Handler                        0x00001b0c   Section        0  alarm.o(i.Timer1A_Handler)
+    i.Timer1_Init100Hz                       0x00001b40   Section        0  alarm.o(i.Timer1_Init100Hz)
+    i.Timer2A_Handler                        0x00001b94   Section        0  timer2.o(i.Timer2A_Handler)
+    i.Timer2_Init                            0x00001bac   Section        0  timer2.o(i.Timer2_Init)
+    i.Timer3A_Handler                        0x00001c0c   Section        0  timer3.o(i.Timer3A_Handler)
+    i.Timer3_Init                            0x00001c24   Section        0  timer3.o(i.Timer3_Init)
+    i.Tx5Fifo_Get                            0x00001c84   Section        0  esp8266.o(i.Tx5Fifo_Get)
+    i.Tx5Fifo_Init                           0x00001cbc   Section        0  esp8266.o(i.Tx5Fifo_Init)
+    i.Tx5Fifo_Put                            0x00001ce0   Section        0  esp8266.o(i.Tx5Fifo_Put)
+    i.Tx5Fifo_Size                           0x00001d1c   Section        0  esp8266.o(i.Tx5Fifo_Size)
+    i.TxFifo_Get                             0x00001d30   Section        0  uart.o(i.TxFifo_Get)
+    i.TxFifo_Init                            0x00001d6c   Section        0  uart.o(i.TxFifo_Init)
+    i.TxFifo_Put                             0x00001d90   Section        0  uart.o(i.TxFifo_Put)
+    i.TxFifo_Size                            0x00001dcc   Section        0  uart.o(i.TxFifo_Size)
+    i.UART0_Handler                          0x00001de0   Section        0  uart.o(i.UART0_Handler)
+    i.UART5_Handler                          0x00001e38   Section        0  esp8266.o(i.UART5_Handler)
+    i.UART5_Init                             0x00001e90   Section        0  esp8266.o(i.UART5_Init)
+    i.UART_Init                              0x00001f68   Section        0  uart.o(i.UART_Init)
+    i.UART_OutChar                           0x00002034   Section        0  uart.o(i.UART_OutChar)
+    i.UART_OutString                         0x00002068   Section        0  uart.o(i.UART_OutString)
+    i.__0sprintf$6                           0x00002080   Section        0  printf6.o(i.__0sprintf$6)
+    i.__aeabi_errno_addr                     0x000020a8   Section        0  errno.o(i.__aeabi_errno_addr)
+    i.__scatterload_copy                     0x000020b0   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x000020be   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x000020c0   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i._printf_core                           0x000020d0   Section        0  printf6.o(i._printf_core)
+    _printf_core                             0x000020d1   Thumb Code   750  printf6.o(i._printf_core)
+    i._printf_post_padding                   0x000023c4   Section        0  printf6.o(i._printf_post_padding)
+    _printf_post_padding                     0x000023c5   Thumb Code    38  printf6.o(i._printf_post_padding)
+    i._printf_pre_padding                    0x000023ea   Section        0  printf6.o(i._printf_pre_padding)
+    _printf_pre_padding                      0x000023eb   Thumb Code    48  printf6.o(i._printf_pre_padding)
+    i._sputc                                 0x0000241a   Section        0  printf6.o(i._sputc)
+    _sputc                                   0x0000241b   Thumb Code    10  printf6.o(i._sputc)
+    i.alarm                                  0x00002424   Section        0  controller.o(i.alarm)
+    i.commandList                            0x000025d4   Section        0  st7735.o(i.commandList)
+    commandList                              0x000025d5   Thumb Code    86  st7735.o(i.commandList)
+    i.commonInit                             0x0000262c   Section        0  st7735.o(i.commonInit)
+    commonInit                               0x0000262d   Thumb Code   340  st7735.o(i.commonInit)
+    i.copyHardwareToSoftware                 0x000027b0   Section        0  uart.o(i.copyHardwareToSoftware)
+    copyHardwareToSoftware                   0x000027b1   Thumb Code    36  uart.o(i.copyHardwareToSoftware)
+    i.copyHardwareToSoftware5                0x000027d8   Section        0  esp8266.o(i.copyHardwareToSoftware5)
+    copyHardwareToSoftware5                  0x000027d9   Thumb Code    36  esp8266.o(i.copyHardwareToSoftware5)
+    i.copySoftwareToHardware                 0x00002800   Section        0  uart.o(i.copySoftwareToHardware)
+    copySoftwareToHardware                   0x00002801   Thumb Code    38  uart.o(i.copySoftwareToHardware)
+    i.copySoftwareToHardware5                0x0000282c   Section        0  esp8266.o(i.copySoftwareToHardware5)
+    copySoftwareToHardware5                  0x0000282d   Thumb Code    38  esp8266.o(i.copySoftwareToHardware5)
+    i.deselect                               0x00002858   Section        0  st7735.o(i.deselect)
+    deselect                                 0x00002859   Thumb Code    24  st7735.o(i.deselect)
+    i.display                                0x00002874   Section        0  controller.o(i.display)
+    i.drawCircle                             0x0000299c   Section        0  line.o(i.drawCircle)
+    i.drawClockDigits                        0x00002a60   Section        0  line.o(i.drawClockDigits)
+    i.drawHourHand                           0x00002b90   Section        0  line.o(i.drawHourHand)
+    i.drawMinuteHand                         0x00002c48   Section        0  line.o(i.drawMinuteHand)
+    i.drawSecondHand                         0x00002cc0   Section        0  line.o(i.drawSecondHand)
+    i.main                                   0x00002d34   Section        0  blynk.o(i.main)
+    i.menu                                   0x00002e20   Section        0  controller.o(i.menu)
+    i.pushColor                              0x00002f64   Section        0  st7735.o(i.pushColor)
+    pushColor                                0x00002f65   Thumb Code    18  st7735.o(i.pushColor)
+    i.setAddrWindow                          0x00002f78   Section        0  st7735.o(i.setAddrWindow)
+    setAddrWindow                            0x00002f79   Thumb Code   106  st7735.o(i.setAddrWindow)
+    i.time                                   0x00002fec   Section        0  controller.o(i.time)
+    i.writecommand                           0x00003130   Section        0  st7735.o(i.writecommand)
+    writecommand                             0x00003131   Thumb Code    46  st7735.o(i.writecommand)
+    i.writedata                              0x00003168   Section        0  st7735.o(i.writedata)
+    writedata                                0x00003169   Thumb Code    24  st7735.o(i.writedata)
+    .constdata                               0x00003188   Section     2114  st7735.o(.constdata)
+    Font                                     0x00003188   Data        1275  st7735.o(.constdata)
+    Bcmd                                     0x00003683   Data         103  st7735.o(.constdata)
+    Rcmd1                                    0x000036ea   Data          59  st7735.o(.constdata)
+    Rcmd2green                               0x00003725   Data          13  st7735.o(.constdata)
+    Rcmd2red                                 0x00003732   Data          13  st7735.o(.constdata)
+    Rcmd3                                    0x0000373f   Data          43  st7735.o(.constdata)
+    .constdata                               0x000039ca   Section      528  line.o(.constdata)
+    .constdata                               0x00003bda   Section      129  ctype_o.o(.constdata)
+    .constdata                               0x00003c5c   Section        4  ctype_o.o(.constdata)
+    table                                    0x00003c5c   Data           4  ctype_o.o(.constdata)
     .data                                    0x20000000   Section       16  uart.o(.data)
     .data                                    0x20000010   Section       44  blynk.o(.data)
     .data                                    0x2000003c   Section       44  st7735.o(.data)
@@ -894,11 +911,10 @@ Image Symbol Table
     RxFifo                                   0x20000118   Data          64  uart.o(.bss)
     TxFifo                                   0x20000158   Data          64  uart.o(.bss)
     .bss                                     0x20000198   Section       64  blynk.o(.bss)
-    .bss                                     0x200001d8   Section       12  st7735.o(.bss)
-    .bss                                     0x200001e4   Section      832  esp8266.o(.bss)
-    Tx5Fifo                                  0x20000424   Data         256  esp8266.o(.bss)
-    STACK                                    0x20000528   Section     1024  startup.o(STACK)
-    StackMem                                 0x20000528   Data           0  startup.o(STACK)
+    .bss                                     0x200001d8   Section      832  esp8266.o(.bss)
+    Tx5Fifo                                  0x20000418   Data         256  esp8266.o(.bss)
+    STACK                                    0x20000518   Section     1024  startup.o(STACK)
+    StackMem                                 0x20000518   Data           0  startup.o(STACK)
 
     Global Symbols
 
@@ -1088,84 +1104,126 @@ Image Symbol Table
     strcpy                                   0x000002b5   Thumb Code    18  strcpy.o(.text)
     strtok                                   0x000002c9   Thumb Code    62  strtok.o(.text)
     atoi                                     0x0000030d   Thumb Code    26  atoi.o(.text)
-    strtol                                   0x00000327   Thumb Code   112  strtol.o(.text)
-    __scatterload                            0x00000399   Thumb Code    28  init.o(.text)
-    __scatterload_rt2                        0x00000399   Thumb Code     0  init.o(.text)
-    __rt_ctype_table                         0x000003bd   Thumb Code     4  ctype_o.o(.text)
-    _strtoul                                 0x000003c5   Thumb Code   158  _strtoul.o(.text)
-    _chval                                   0x00000463   Thumb Code    28  _chval.o(.text)
-    Blynk_to_TM4C                            0x00000481   Thumb Code   186  blynk.o(i.Blynk_to_TM4C)
-    Delay1ms                                 0x0000056d   Thumb Code    32  st7735.o(i.Delay1ms)
-    DelayMs                                  0x0000058d   Thumb Code    32  esp8266.o(i.DelayMs)
-    ESP8266_GetMessage                       0x000005ad   Thumb Code    66  esp8266.o(i.ESP8266_GetMessage)
-    ESP8266_Init                             0x000005fd   Thumb Code   118  esp8266.o(i.ESP8266_Init)
-    ESP8266_OutChar                          0x00000685   Thumb Code    46  esp8266.o(i.ESP8266_OutChar)
-    ESP8266_OutString                        0x000006b9   Thumb Code    24  esp8266.o(i.ESP8266_OutString)
-    ESP8266_OutUDec                          0x000006d1   Thumb Code    42  esp8266.o(i.ESP8266_OutUDec)
-    ESP8266_Reset                            0x000006fd   Thumb Code    68  esp8266.o(i.ESP8266_Reset)
-    ESP8266_SetupWiFi                        0x000007f5   Thumb Code   260  esp8266.o(i.ESP8266_SetupWiFi)
-    InitializeGlobals                        0x00000a0d   Thumb Code    44  controller.o(i.InitializeGlobals)
-    Output_Color                             0x00000a61   Thumb Code    12  st7735.o(i.Output_Color)
-    Output_Init                              0x00000a6d   Thumb Code    16  st7735.o(i.Output_Init)
-    PLL_Init                                 0x00000a7d   Thumb Code   118  pll.o(i.PLL_Init)
-    PortD6_Init                              0x00000af9   Thumb Code    94  alarm.o(i.PortD6_Init)
-    PortD_Init                               0x00000b69   Thumb Code    68  controller.o(i.PortD_Init)
-    PortF_Init                               0x00000bbd   Thumb Code    74  portf.o(i.PortF_Init)
-    PortF_Input                              0x00000c19   Thumb Code    10  portf.o(i.PortF_Input)
-    Rx5Fifo_Init                             0x00000c29   Thumb Code    30  esp8266.o(i.Rx5Fifo_Init)
-    Rx5Fifo_Put                              0x00000c55   Thumb Code   192  esp8266.o(i.Rx5Fifo_Put)
-    Rx5Fifo_Size                             0x00000d25   Thumb Code    12  esp8266.o(i.Rx5Fifo_Size)
-    RxFifo_Init                              0x00000d39   Thumb Code    26  uart.o(i.RxFifo_Init)
-    RxFifo_Put                               0x00000d5d   Thumb Code    48  uart.o(i.RxFifo_Put)
-    RxFifo_Size                              0x00000d99   Thumb Code    12  uart.o(i.RxFifo_Size)
-    ST7735_DrawCharS                         0x00000dad   Thumb Code   232  st7735.o(i.ST7735_DrawCharS)
-    ST7735_DrawPixel                         0x00000ea1   Thumb Code    68  st7735.o(i.ST7735_DrawPixel)
-    ST7735_DrawString                        0x00000eed   Thumb Code    86  st7735.o(i.ST7735_DrawString)
-    ST7735_FillRect                          0x00000f45   Thumb Code   168  st7735.o(i.ST7735_FillRect)
-    ST7735_FillScreen                        0x00000ff5   Thumb Code    28  st7735.o(i.ST7735_FillScreen)
-    ST7735_InitR                             0x00001019   Thumb Code    90  st7735.o(i.ST7735_InitR)
-    ST7735_OutChar                           0x00001095   Thumb Code   178  st7735.o(i.ST7735_OutChar)
-    ST7735_OutString                         0x0000116d   Thumb Code    24  st7735.o(i.ST7735_OutString)
-    ST7735_OutUDec                           0x00001185   Thumb Code   118  st7735.o(i.ST7735_OutUDec)
-    ST7735_SetCursor                         0x00001211   Thumb Code    22  st7735.o(i.ST7735_SetCursor)
-    ST7735_SetTextColor                      0x00001231   Thumb Code     6  st7735.o(i.ST7735_SetTextColor)
-    SendInformation                          0x0000123d   Thumb Code    40  blynk.o(i.SendInformation)
-    TM4C_to_Blynk                            0x00001271   Thumb Code    50  blynk.o(i.TM4C_to_Blynk)
-    Timer0A_Handler                          0x000012ad   Thumb Code   126  timer0a.o(i.Timer0A_Handler)
-    Timer0A_Init1Hz                          0x00001341   Thumb Code    84  timer0a.o(i.Timer0A_Init1Hz)
-    Timer1A_Handler                          0x000013a9   Thumb Code    34  alarm.o(i.Timer1A_Handler)
-    Timer1_Init100Hz                         0x000013dd   Thumb Code    64  alarm.o(i.Timer1_Init100Hz)
-    Timer2A_Handler                          0x00001431   Thumb Code    16  timer2.o(i.Timer2A_Handler)
-    Timer2_Init                              0x00001449   Thumb Code    76  timer2.o(i.Timer2_Init)
-    Timer3A_Handler                          0x000014a9   Thumb Code    16  timer3.o(i.Timer3A_Handler)
-    Timer3_Init                              0x000014c1   Thumb Code    74  timer3.o(i.Timer3_Init)
-    Tx5Fifo_Get                              0x00001521   Thumb Code    44  esp8266.o(i.Tx5Fifo_Get)
-    Tx5Fifo_Init                             0x00001559   Thumb Code    26  esp8266.o(i.Tx5Fifo_Init)
-    Tx5Fifo_Put                              0x0000157d   Thumb Code    46  esp8266.o(i.Tx5Fifo_Put)
-    Tx5Fifo_Size                             0x000015b9   Thumb Code    12  esp8266.o(i.Tx5Fifo_Size)
-    TxFifo_Get                               0x000015cd   Thumb Code    46  uart.o(i.TxFifo_Get)
-    TxFifo_Init                              0x00001609   Thumb Code    26  uart.o(i.TxFifo_Init)
-    TxFifo_Put                               0x0000162d   Thumb Code    48  uart.o(i.TxFifo_Put)
-    TxFifo_Size                              0x00001669   Thumb Code    12  uart.o(i.TxFifo_Size)
-    UART0_Handler                            0x0000167d   Thumb Code    82  uart.o(i.UART0_Handler)
-    UART5_Handler                            0x000016d5   Thumb Code    82  esp8266.o(i.UART5_Handler)
-    UART5_Init                               0x0000172d   Thumb Code   190  esp8266.o(i.UART5_Init)
-    UART_Init                                0x00001805   Thumb Code   180  uart.o(i.UART_Init)
-    UART_OutChar                             0x000018d1   Thumb Code    46  uart.o(i.UART_OutChar)
-    UART_OutString                           0x00001905   Thumb Code    24  uart.o(i.UART_OutString)
-    __aeabi_errno_addr                       0x0000191d   Thumb Code     4  errno.o(i.__aeabi_errno_addr)
-    __rt_errno_addr                          0x0000191d   Thumb Code     0  errno.o(i.__aeabi_errno_addr)
-    __scatterload_copy                       0x00001925   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x00001933   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x00001935   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    fillmessage                              0x00001be1   Thumb Code    64  st7735.o(i.fillmessage)
-    main                                     0x00001c29   Thumb Code   142  blynk.o(i.main)
-    smallCircle                              0x000023d2   Data          36  st7735.o(.constdata)
-    circle                                   0x000023f6   Data          60  st7735.o(.constdata)
-    dBfs                                     0x00002432   Data         512  st7735.o(.constdata)
-    __ctype_table                            0x00002632   Data         129  ctype_o.o(.constdata)
-    Region$$Table$$Base                      0x000026b8   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x000026d8   Number         0  anon$$obj.o(Region$$Table)
+    __aeabi_dadd                             0x00000327   Thumb Code   322  dadd.o(.text)
+    __aeabi_dsub                             0x00000469   Thumb Code     6  dadd.o(.text)
+    __aeabi_drsub                            0x0000046f   Thumb Code     6  dadd.o(.text)
+    __aeabi_dmul                             0x00000475   Thumb Code   228  dmul.o(.text)
+    __aeabi_i2d                              0x00000559   Thumb Code    34  dflti.o(.text)
+    __aeabi_cdcmpeq                          0x0000057d   Thumb Code     0  cdcmple.o(.text)
+    __aeabi_cdcmple                          0x0000057d   Thumb Code    38  cdcmple.o(.text)
+    __aeabi_cdrcmple                         0x000005a5   Thumb Code    38  cdrcmple.o(.text)
+    __aeabi_uidiv                            0x000005cd   Thumb Code     0  uidiv.o(.text)
+    __aeabi_uidivmod                         0x000005cd   Thumb Code    44  uidiv.o(.text)
+    __aeabi_llsl                             0x000005f9   Thumb Code    30  llshl.o(.text)
+    _ll_shift_l                              0x000005f9   Thumb Code     0  llshl.o(.text)
+    __aeabi_lasr                             0x00000617   Thumb Code    36  llsshr.o(.text)
+    _ll_sshift_r                             0x00000617   Thumb Code     0  llsshr.o(.text)
+    strtol                                   0x0000063b   Thumb Code   112  strtol.o(.text)
+    __I$use$fp                               0x000006ab   Thumb Code     0  iusefp.o(.text)
+    _double_round                            0x000006ab   Thumb Code    26  depilogue.o(.text)
+    _double_epilogue                         0x000006c5   Thumb Code   164  depilogue.o(.text)
+    __scatterload                            0x00000769   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x00000769   Thumb Code     0  init.o(.text)
+    __aeabi_llsr                             0x0000078d   Thumb Code    32  llushr.o(.text)
+    _ll_ushift_r                             0x0000078d   Thumb Code     0  llushr.o(.text)
+    __rt_ctype_table                         0x000007ad   Thumb Code     4  ctype_o.o(.text)
+    _strtoul                                 0x000007b5   Thumb Code   158  _strtoul.o(.text)
+    _chval                                   0x00000853   Thumb Code    28  _chval.o(.text)
+    Alarm_Off                                0x00000871   Thumb Code     8  alarm.o(i.Alarm_Off)
+    Alarm_On                                 0x0000087d   Thumb Code     8  alarm.o(i.Alarm_On)
+    Blynk_to_TM4C                            0x00000889   Thumb Code   186  blynk.o(i.Blynk_to_TM4C)
+    Delay1ms                                 0x00000975   Thumb Code    32  st7735.o(i.Delay1ms)
+    DelayMs                                  0x00000995   Thumb Code    32  esp8266.o(i.DelayMs)
+    DelayWait10ms                            0x000009b5   Thumb Code    32  controller.o(i.DelayWait10ms)
+    DrawLineDown                             0x000009d5   Thumb Code   216  line.o(i.DrawLineDown)
+    DrawLineUp                               0x00000aad   Thumb Code   216  line.o(i.DrawLineUp)
+    ESP8266_GetMessage                       0x00000b85   Thumb Code    66  esp8266.o(i.ESP8266_GetMessage)
+    ESP8266_Init                             0x00000bd5   Thumb Code   118  esp8266.o(i.ESP8266_Init)
+    ESP8266_OutChar                          0x00000c5d   Thumb Code    46  esp8266.o(i.ESP8266_OutChar)
+    ESP8266_OutString                        0x00000c91   Thumb Code    24  esp8266.o(i.ESP8266_OutString)
+    ESP8266_OutUDec                          0x00000ca9   Thumb Code    42  esp8266.o(i.ESP8266_OutUDec)
+    ESP8266_Reset                            0x00000cd5   Thumb Code    68  esp8266.o(i.ESP8266_Reset)
+    ESP8266_SetupWiFi                        0x00000dcd   Thumb Code   260  esp8266.o(i.ESP8266_SetupWiFi)
+    InitializeGlobals                        0x00000fe5   Thumb Code    44  controller.o(i.InitializeGlobals)
+    Output_Color                             0x00001039   Thumb Code    12  st7735.o(i.Output_Color)
+    Output_Init                              0x00001045   Thumb Code    16  st7735.o(i.Output_Init)
+    PLL_Init                                 0x00001055   Thumb Code   118  pll.o(i.PLL_Init)
+    PortD6_Init                              0x000010d1   Thumb Code    94  alarm.o(i.PortD6_Init)
+    PortD_Init                               0x00001141   Thumb Code    68  controller.o(i.PortD_Init)
+    PortF_Init                               0x00001195   Thumb Code    74  portf.o(i.PortF_Init)
+    PortF_Input                              0x000011f1   Thumb Code    10  portf.o(i.PortF_Input)
+    Rx5Fifo_Init                             0x00001201   Thumb Code    30  esp8266.o(i.Rx5Fifo_Init)
+    Rx5Fifo_Put                              0x0000122d   Thumb Code   192  esp8266.o(i.Rx5Fifo_Put)
+    Rx5Fifo_Size                             0x000012fd   Thumb Code    12  esp8266.o(i.Rx5Fifo_Size)
+    RxFifo_Init                              0x00001311   Thumb Code    26  uart.o(i.RxFifo_Init)
+    RxFifo_Put                               0x00001335   Thumb Code    48  uart.o(i.RxFifo_Put)
+    RxFifo_Size                              0x00001371   Thumb Code    12  uart.o(i.RxFifo_Size)
+    ST7735_DrawChar                          0x00001385   Thumb Code   260  st7735.o(i.ST7735_DrawChar)
+    ST7735_DrawCharS                         0x00001495   Thumb Code   232  st7735.o(i.ST7735_DrawCharS)
+    ST7735_DrawPixel                         0x00001589   Thumb Code    68  st7735.o(i.ST7735_DrawPixel)
+    ST7735_DrawString                        0x000015d5   Thumb Code    86  st7735.o(i.ST7735_DrawString)
+    ST7735_FillRect                          0x0000162d   Thumb Code   168  st7735.o(i.ST7735_FillRect)
+    ST7735_FillScreen                        0x000016dd   Thumb Code    28  st7735.o(i.ST7735_FillScreen)
+    ST7735_InitR                             0x00001701   Thumb Code    90  st7735.o(i.ST7735_InitR)
+    ST7735_Line                              0x0000177d   Thumb Code   262  line.o(i.ST7735_Line)
+    ST7735_OutChar                           0x00001885   Thumb Code   178  st7735.o(i.ST7735_OutChar)
+    ST7735_OutString                         0x0000195d   Thumb Code    24  st7735.o(i.ST7735_OutString)
+    ST7735_SetCursor                         0x00001975   Thumb Code    22  st7735.o(i.ST7735_SetCursor)
+    ST7735_SetTextColor                      0x00001995   Thumb Code     6  st7735.o(i.ST7735_SetTextColor)
+    SendInformation                          0x000019a1   Thumb Code    40  blynk.o(i.SendInformation)
+    TM4C_to_Blynk                            0x000019d5   Thumb Code    50  blynk.o(i.TM4C_to_Blynk)
+    Timer0A_Handler                          0x00001a11   Thumb Code   126  timer0a.o(i.Timer0A_Handler)
+    Timer0A_Init1Hz                          0x00001aa5   Thumb Code    84  timer0a.o(i.Timer0A_Init1Hz)
+    Timer1A_Handler                          0x00001b0d   Thumb Code    34  alarm.o(i.Timer1A_Handler)
+    Timer1_Init100Hz                         0x00001b41   Thumb Code    64  alarm.o(i.Timer1_Init100Hz)
+    Timer2A_Handler                          0x00001b95   Thumb Code    16  timer2.o(i.Timer2A_Handler)
+    Timer2_Init                              0x00001bad   Thumb Code    76  timer2.o(i.Timer2_Init)
+    Timer3A_Handler                          0x00001c0d   Thumb Code    16  timer3.o(i.Timer3A_Handler)
+    Timer3_Init                              0x00001c25   Thumb Code    74  timer3.o(i.Timer3_Init)
+    Tx5Fifo_Get                              0x00001c85   Thumb Code    44  esp8266.o(i.Tx5Fifo_Get)
+    Tx5Fifo_Init                             0x00001cbd   Thumb Code    26  esp8266.o(i.Tx5Fifo_Init)
+    Tx5Fifo_Put                              0x00001ce1   Thumb Code    46  esp8266.o(i.Tx5Fifo_Put)
+    Tx5Fifo_Size                             0x00001d1d   Thumb Code    12  esp8266.o(i.Tx5Fifo_Size)
+    TxFifo_Get                               0x00001d31   Thumb Code    46  uart.o(i.TxFifo_Get)
+    TxFifo_Init                              0x00001d6d   Thumb Code    26  uart.o(i.TxFifo_Init)
+    TxFifo_Put                               0x00001d91   Thumb Code    48  uart.o(i.TxFifo_Put)
+    TxFifo_Size                              0x00001dcd   Thumb Code    12  uart.o(i.TxFifo_Size)
+    UART0_Handler                            0x00001de1   Thumb Code    82  uart.o(i.UART0_Handler)
+    UART5_Handler                            0x00001e39   Thumb Code    82  esp8266.o(i.UART5_Handler)
+    UART5_Init                               0x00001e91   Thumb Code   190  esp8266.o(i.UART5_Init)
+    UART_Init                                0x00001f69   Thumb Code   180  uart.o(i.UART_Init)
+    UART_OutChar                             0x00002035   Thumb Code    46  uart.o(i.UART_OutChar)
+    UART_OutString                           0x00002069   Thumb Code    24  uart.o(i.UART_OutString)
+    __0sprintf$6                             0x00002081   Thumb Code    34  printf6.o(i.__0sprintf$6)
+    __1sprintf$6                             0x00002081   Thumb Code     0  printf6.o(i.__0sprintf$6)
+    __2sprintf                               0x00002081   Thumb Code     0  printf6.o(i.__0sprintf$6)
+    __aeabi_errno_addr                       0x000020a9   Thumb Code     4  errno.o(i.__aeabi_errno_addr)
+    __rt_errno_addr                          0x000020a9   Thumb Code     0  errno.o(i.__aeabi_errno_addr)
+    __scatterload_copy                       0x000020b1   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x000020bf   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x000020c1   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    alarm                                    0x00002425   Thumb Code   284  controller.o(i.alarm)
+    display                                  0x00002875   Thumb Code   214  controller.o(i.display)
+    drawCircle                               0x0000299d   Thumb Code   196  line.o(i.drawCircle)
+    drawClockDigits                          0x00002a61   Thumb Code   304  line.o(i.drawClockDigits)
+    drawHourHand                             0x00002b91   Thumb Code   176  line.o(i.drawHourHand)
+    drawMinuteHand                           0x00002c49   Thumb Code   112  line.o(i.drawMinuteHand)
+    drawSecondHand                           0x00002cc1   Thumb Code   108  line.o(i.drawSecondHand)
+    main                                     0x00002d35   Thumb Code   152  blynk.o(i.main)
+    menu                                     0x00002e21   Thumb Code   190  controller.o(i.menu)
+    time                                     0x00002fed   Thumb Code   210  controller.o(i.time)
+    smallCircle                              0x0000376a   Data          36  st7735.o(.constdata)
+    circle                                   0x0000378e   Data          60  st7735.o(.constdata)
+    dBfs                                     0x000037ca   Data         512  st7735.o(.constdata)
+    xCoordinates                             0x000039ca   Data         120  line.o(.constdata)
+    yCoordinates                             0x00003a42   Data         120  line.o(.constdata)
+    xHour2Coordinates                        0x00003aba   Data          24  line.o(.constdata)
+    xHourCoordinates                         0x00003ad2   Data         120  line.o(.constdata)
+    yHour2Coordinates                        0x00003b4a   Data          24  line.o(.constdata)
+    yHourCoordinates                         0x00003b62   Data         120  line.o(.constdata)
+    __ctype_table                            0x00003bda   Data         129  ctype_o.o(.constdata)
+    Region$$Table$$Base                      0x00003c60   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00003c80   Number         0  anon$$obj.o(Region$$Table)
     RxPutI                                   0x20000000   Data           4  uart.o(.data)
     RxGetI                                   0x20000004   Data           4  uart.o(.data)
     TxPutI                                   0x20000008   Data           4  uart.o(.data)
@@ -1209,10 +1267,9 @@ Image Symbol Table
     sw3                                      0x2000010c   Data           1  controller.o(.data)
     sw4                                      0x2000010d   Data           1  controller.o(.data)
     serial_buf                               0x20000198   Data          64  blynk.o(.bss)
-    Message                                  0x200001d8   Data          12  st7735.o(.bss)
-    Rx5Fifo                                  0x200001e4   Data         512  esp8266.o(.bss)
-    RxMessage                                0x200003e4   Data          64  esp8266.o(.bss)
-    __initial_sp                             0x20000928   Data           0  startup.o(STACK)
+    Rx5Fifo                                  0x200001d8   Data         512  esp8266.o(.bss)
+    RxMessage                                0x200003d8   Data          64  esp8266.o(.bss)
+    __initial_sp                             0x20000918   Data           0  startup.o(STACK)
 
 
 
@@ -1222,9 +1279,9 @@ Memory Map of the image
 
   Image Entry point : 0x0000026d
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x000027f0, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00003d98, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Base: 0x00000000, Size: 0x000026d8, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x00000000, Size: 0x00003c80, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1243,97 +1300,131 @@ Memory Map of the image
     0x000002c6   0x00000002   PAD
     0x000002c8   0x00000044   Code   RO          921    .text               mc_w.l(strtok.o)
     0x0000030c   0x0000001a   Code   RO         1188    .text               mc_w.l(atoi.o)
-    0x00000326   0x00000070   Code   RO         1230    .text               mc_w.l(strtol.o)
-    0x00000396   0x00000002   PAD
-    0x00000398   0x00000024   Code   RO         1239    .text               mc_w.l(init.o)
-    0x000003bc   0x00000008   Code   RO         1243    .text               mc_w.l(ctype_o.o)
-    0x000003c4   0x0000009e   Code   RO         1271    .text               mc_w.l(_strtoul.o)
-    0x00000462   0x0000001c   Code   RO         1273    .text               mc_w.l(_chval.o)
-    0x0000047e   0x00000002   PAD
-    0x00000480   0x000000ec   Code   RO          171    i.Blynk_to_TM4C     blynk.o
-    0x0000056c   0x00000020   Code   RO          246    i.Delay1ms          st7735.o
-    0x0000058c   0x00000020   Code   RO          578    i.DelayMs           esp8266.o
-    0x000005ac   0x00000050   Code   RO          580    i.ESP8266_GetMessage  esp8266.o
-    0x000005fc   0x00000088   Code   RO          581    i.ESP8266_Init      esp8266.o
-    0x00000684   0x00000034   Code   RO          582    i.ESP8266_OutChar   esp8266.o
-    0x000006b8   0x00000018   Code   RO          583    i.ESP8266_OutString  esp8266.o
-    0x000006d0   0x0000002a   Code   RO          584    i.ESP8266_OutUDec   esp8266.o
-    0x000006fa   0x00000002   PAD
-    0x000006fc   0x000000f8   Code   RO          585    i.ESP8266_Reset     esp8266.o
-    0x000007f4   0x00000218   Code   RO          586    i.ESP8266_SetupWiFi  esp8266.o
-    0x00000a0c   0x00000054   Code   RO          770    i.InitializeGlobals  controller.o
-    0x00000a60   0x0000000c   Code   RO          248    i.Output_Color      st7735.o
-    0x00000a6c   0x00000010   Code   RO          249    i.Output_Init       st7735.o
-    0x00000a7c   0x0000007c   Code   RO           12    i.PLL_Init          pll.o
-    0x00000af8   0x00000070   Code   RO          732    i.PortD6_Init       alarm.o
-    0x00000b68   0x00000054   Code   RO          771    i.PortD_Init        controller.o
-    0x00000bbc   0x0000005c   Code   RO          706    i.PortF_Init        portf.o
-    0x00000c18   0x00000010   Code   RO          707    i.PortF_Input       portf.o
-    0x00000c28   0x0000002c   Code   RO          587    i.Rx5Fifo_Init      esp8266.o
-    0x00000c54   0x000000d0   Code   RO          588    i.Rx5Fifo_Put       esp8266.o
-    0x00000d24   0x00000014   Code   RO          589    i.Rx5Fifo_Size      esp8266.o
-    0x00000d38   0x00000024   Code   RO           35    i.RxFifo_Init       uart.o
-    0x00000d5c   0x0000003c   Code   RO           36    i.RxFifo_Put        uart.o
-    0x00000d98   0x00000014   Code   RO           37    i.RxFifo_Size       uart.o
-    0x00000dac   0x000000f4   Code   RO          255    i.ST7735_DrawCharS  st7735.o
-    0x00000ea0   0x0000004c   Code   RO          259    i.ST7735_DrawPixel  st7735.o
-    0x00000eec   0x00000056   Code   RO          261    i.ST7735_DrawString  st7735.o
-    0x00000f42   0x00000002   PAD
-    0x00000f44   0x000000b0   Code   RO          262    i.ST7735_FillRect   st7735.o
-    0x00000ff4   0x00000024   Code   RO          263    i.ST7735_FillScreen  st7735.o
-    0x00001018   0x0000007c   Code   RO          265    i.ST7735_InitR      st7735.o
-    0x00001094   0x000000d8   Code   RO          267    i.ST7735_OutChar    st7735.o
-    0x0000116c   0x00000018   Code   RO          268    i.ST7735_OutString  st7735.o
-    0x00001184   0x0000008c   Code   RO          269    i.ST7735_OutUDec    st7735.o
-    0x00001210   0x00000020   Code   RO          278    i.ST7735_SetCursor  st7735.o
-    0x00001230   0x0000000c   Code   RO          280    i.ST7735_SetTextColor  st7735.o
-    0x0000123c   0x00000034   Code   RO          172    i.SendInformation   blynk.o
-    0x00001270   0x0000003c   Code   RO          173    i.TM4C_to_Blynk     blynk.o
-    0x000012ac   0x00000094   Code   RO          892    i.Timer0A_Handler   timer0a.o
-    0x00001340   0x00000068   Code   RO          893    i.Timer0A_Init1Hz   timer0a.o
-    0x000013a8   0x00000034   Code   RO          733    i.Timer1A_Handler   alarm.o
-    0x000013dc   0x00000054   Code   RO          734    i.Timer1_Init100Hz  alarm.o
-    0x00001430   0x00000018   Code   RO          536    i.Timer2A_Handler   timer2.o
-    0x00001448   0x00000060   Code   RO          537    i.Timer2_Init       timer2.o
-    0x000014a8   0x00000018   Code   RO          557    i.Timer3A_Handler   timer3.o
-    0x000014c0   0x00000060   Code   RO          558    i.Timer3_Init       timer3.o
-    0x00001520   0x00000038   Code   RO          590    i.Tx5Fifo_Get       esp8266.o
-    0x00001558   0x00000024   Code   RO          591    i.Tx5Fifo_Init      esp8266.o
-    0x0000157c   0x0000003c   Code   RO          592    i.Tx5Fifo_Put       esp8266.o
-    0x000015b8   0x00000014   Code   RO          593    i.Tx5Fifo_Size      esp8266.o
-    0x000015cc   0x0000003c   Code   RO           38    i.TxFifo_Get        uart.o
-    0x00001608   0x00000024   Code   RO           39    i.TxFifo_Init       uart.o
-    0x0000162c   0x0000003c   Code   RO           40    i.TxFifo_Put        uart.o
-    0x00001668   0x00000014   Code   RO           41    i.TxFifo_Size       uart.o
-    0x0000167c   0x00000058   Code   RO           42    i.UART0_Handler     uart.o
-    0x000016d4   0x00000058   Code   RO          594    i.UART5_Handler     esp8266.o
-    0x0000172c   0x000000d8   Code   RO          595    i.UART5_Init        esp8266.o
-    0x00001804   0x000000cc   Code   RO           48    i.UART_Init         uart.o
-    0x000018d0   0x00000034   Code   RO           49    i.UART_OutChar      uart.o
-    0x00001904   0x00000018   Code   RO           50    i.UART_OutString    uart.o
-    0x0000191c   0x00000008   Code   RO         1223    i.__aeabi_errno_addr  mc_w.l(errno.o)
-    0x00001924   0x0000000e   Code   RO         1277    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x00001932   0x00000002   Code   RO         1278    i.__scatterload_null  mc_w.l(handlers.o)
-    0x00001934   0x0000000e   Code   RO         1279    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x00001942   0x00000056   Code   RO          282    i.commandList       st7735.o
-    0x00001998   0x00000184   Code   RO          283    i.commonInit        st7735.o
-    0x00001b1c   0x00000028   Code   RO           53    i.copyHardwareToSoftware  uart.o
-    0x00001b44   0x00000028   Code   RO          596    i.copyHardwareToSoftware5  esp8266.o
-    0x00001b6c   0x0000002c   Code   RO           54    i.copySoftwareToHardware  uart.o
-    0x00001b98   0x0000002c   Code   RO          597    i.copySoftwareToHardware5  esp8266.o
-    0x00001bc4   0x0000001c   Code   RO          284    i.deselect          st7735.o
-    0x00001be0   0x00000048   Code   RO          287    i.fillmessage       st7735.o
-    0x00001c28   0x000000e8   Code   RO          174    i.main              blynk.o
-    0x00001d10   0x00000012   Code   RO          289    i.pushColor         st7735.o
-    0x00001d22   0x00000002   PAD
-    0x00001d24   0x00000074   Code   RO          290    i.setAddrWindow     st7735.o
-    0x00001d98   0x00000038   Code   RO          291    i.writecommand      st7735.o
-    0x00001dd0   0x00000020   Code   RO          292    i.writedata         st7735.o
-    0x00001df0   0x00000842   Data   RO          294    .constdata          st7735.o
-    0x00002632   0x00000081   Data   RO         1244    .constdata          mc_w.l(ctype_o.o)
-    0x000026b3   0x00000001   PAD
-    0x000026b4   0x00000004   Data   RO         1245    .constdata          mc_w.l(ctype_o.o)
-    0x000026b8   0x00000020   Data   RO         1275    Region$$Table       anon$$obj.o
+    0x00000326   0x0000014e   Code   RO         1190    .text               mf_w.l(dadd.o)
+    0x00000474   0x000000e4   Code   RO         1192    .text               mf_w.l(dmul.o)
+    0x00000558   0x00000022   Code   RO         1194    .text               mf_w.l(dflti.o)
+    0x0000057a   0x00000002   PAD
+    0x0000057c   0x00000028   Code   RO         1196    .text               mf_w.l(cdcmple.o)
+    0x000005a4   0x00000028   Code   RO         1198    .text               mf_w.l(cdrcmple.o)
+    0x000005cc   0x0000002c   Code   RO         1215    .text               mc_w.l(uidiv.o)
+    0x000005f8   0x0000001e   Code   RO         1219    .text               mc_w.l(llshl.o)
+    0x00000616   0x00000024   Code   RO         1221    .text               mc_w.l(llsshr.o)
+    0x0000063a   0x00000070   Code   RO         1230    .text               mc_w.l(strtol.o)
+    0x000006aa   0x00000000   Code   RO         1232    .text               mc_w.l(iusefp.o)
+    0x000006aa   0x000000be   Code   RO         1233    .text               mf_w.l(depilogue.o)
+    0x00000768   0x00000024   Code   RO         1239    .text               mc_w.l(init.o)
+    0x0000078c   0x00000020   Code   RO         1241    .text               mc_w.l(llushr.o)
+    0x000007ac   0x00000008   Code   RO         1243    .text               mc_w.l(ctype_o.o)
+    0x000007b4   0x0000009e   Code   RO         1271    .text               mc_w.l(_strtoul.o)
+    0x00000852   0x0000001c   Code   RO         1273    .text               mc_w.l(_chval.o)
+    0x0000086e   0x00000002   PAD
+    0x00000870   0x0000000c   Code   RO          730    i.Alarm_Off         alarm.o
+    0x0000087c   0x0000000c   Code   RO          731    i.Alarm_On          alarm.o
+    0x00000888   0x000000ec   Code   RO          171    i.Blynk_to_TM4C     blynk.o
+    0x00000974   0x00000020   Code   RO          246    i.Delay1ms          st7735.o
+    0x00000994   0x00000020   Code   RO          578    i.DelayMs           esp8266.o
+    0x000009b4   0x00000020   Code   RO          769    i.DelayWait10ms     controller.o
+    0x000009d4   0x000000d8   Code   RO          826    i.DrawLineDown      line.o
+    0x00000aac   0x000000d8   Code   RO          827    i.DrawLineUp        line.o
+    0x00000b84   0x00000050   Code   RO          580    i.ESP8266_GetMessage  esp8266.o
+    0x00000bd4   0x00000088   Code   RO          581    i.ESP8266_Init      esp8266.o
+    0x00000c5c   0x00000034   Code   RO          582    i.ESP8266_OutChar   esp8266.o
+    0x00000c90   0x00000018   Code   RO          583    i.ESP8266_OutString  esp8266.o
+    0x00000ca8   0x0000002a   Code   RO          584    i.ESP8266_OutUDec   esp8266.o
+    0x00000cd2   0x00000002   PAD
+    0x00000cd4   0x000000f8   Code   RO          585    i.ESP8266_Reset     esp8266.o
+    0x00000dcc   0x00000218   Code   RO          586    i.ESP8266_SetupWiFi  esp8266.o
+    0x00000fe4   0x00000054   Code   RO          770    i.InitializeGlobals  controller.o
+    0x00001038   0x0000000c   Code   RO          248    i.Output_Color      st7735.o
+    0x00001044   0x00000010   Code   RO          249    i.Output_Init       st7735.o
+    0x00001054   0x0000007c   Code   RO           12    i.PLL_Init          pll.o
+    0x000010d0   0x00000070   Code   RO          732    i.PortD6_Init       alarm.o
+    0x00001140   0x00000054   Code   RO          771    i.PortD_Init        controller.o
+    0x00001194   0x0000005c   Code   RO          706    i.PortF_Init        portf.o
+    0x000011f0   0x00000010   Code   RO          707    i.PortF_Input       portf.o
+    0x00001200   0x0000002c   Code   RO          587    i.Rx5Fifo_Init      esp8266.o
+    0x0000122c   0x000000d0   Code   RO          588    i.Rx5Fifo_Put       esp8266.o
+    0x000012fc   0x00000014   Code   RO          589    i.Rx5Fifo_Size      esp8266.o
+    0x00001310   0x00000024   Code   RO           35    i.RxFifo_Init       uart.o
+    0x00001334   0x0000003c   Code   RO           36    i.RxFifo_Put        uart.o
+    0x00001370   0x00000014   Code   RO           37    i.RxFifo_Size       uart.o
+    0x00001384   0x00000110   Code   RO          254    i.ST7735_DrawChar   st7735.o
+    0x00001494   0x000000f4   Code   RO          255    i.ST7735_DrawCharS  st7735.o
+    0x00001588   0x0000004c   Code   RO          259    i.ST7735_DrawPixel  st7735.o
+    0x000015d4   0x00000056   Code   RO          261    i.ST7735_DrawString  st7735.o
+    0x0000162a   0x00000002   PAD
+    0x0000162c   0x000000b0   Code   RO          262    i.ST7735_FillRect   st7735.o
+    0x000016dc   0x00000024   Code   RO          263    i.ST7735_FillScreen  st7735.o
+    0x00001700   0x0000007c   Code   RO          265    i.ST7735_InitR      st7735.o
+    0x0000177c   0x00000106   Code   RO          828    i.ST7735_Line       line.o
+    0x00001882   0x00000002   PAD
+    0x00001884   0x000000d8   Code   RO          267    i.ST7735_OutChar    st7735.o
+    0x0000195c   0x00000018   Code   RO          268    i.ST7735_OutString  st7735.o
+    0x00001974   0x00000020   Code   RO          278    i.ST7735_SetCursor  st7735.o
+    0x00001994   0x0000000c   Code   RO          280    i.ST7735_SetTextColor  st7735.o
+    0x000019a0   0x00000034   Code   RO          172    i.SendInformation   blynk.o
+    0x000019d4   0x0000003c   Code   RO          173    i.TM4C_to_Blynk     blynk.o
+    0x00001a10   0x00000094   Code   RO          892    i.Timer0A_Handler   timer0a.o
+    0x00001aa4   0x00000068   Code   RO          893    i.Timer0A_Init1Hz   timer0a.o
+    0x00001b0c   0x00000034   Code   RO          733    i.Timer1A_Handler   alarm.o
+    0x00001b40   0x00000054   Code   RO          734    i.Timer1_Init100Hz  alarm.o
+    0x00001b94   0x00000018   Code   RO          536    i.Timer2A_Handler   timer2.o
+    0x00001bac   0x00000060   Code   RO          537    i.Timer2_Init       timer2.o
+    0x00001c0c   0x00000018   Code   RO          557    i.Timer3A_Handler   timer3.o
+    0x00001c24   0x00000060   Code   RO          558    i.Timer3_Init       timer3.o
+    0x00001c84   0x00000038   Code   RO          590    i.Tx5Fifo_Get       esp8266.o
+    0x00001cbc   0x00000024   Code   RO          591    i.Tx5Fifo_Init      esp8266.o
+    0x00001ce0   0x0000003c   Code   RO          592    i.Tx5Fifo_Put       esp8266.o
+    0x00001d1c   0x00000014   Code   RO          593    i.Tx5Fifo_Size      esp8266.o
+    0x00001d30   0x0000003c   Code   RO           38    i.TxFifo_Get        uart.o
+    0x00001d6c   0x00000024   Code   RO           39    i.TxFifo_Init       uart.o
+    0x00001d90   0x0000003c   Code   RO           40    i.TxFifo_Put        uart.o
+    0x00001dcc   0x00000014   Code   RO           41    i.TxFifo_Size       uart.o
+    0x00001de0   0x00000058   Code   RO           42    i.UART0_Handler     uart.o
+    0x00001e38   0x00000058   Code   RO          594    i.UART5_Handler     esp8266.o
+    0x00001e90   0x000000d8   Code   RO          595    i.UART5_Init        esp8266.o
+    0x00001f68   0x000000cc   Code   RO           48    i.UART_Init         uart.o
+    0x00002034   0x00000034   Code   RO           49    i.UART_OutChar      uart.o
+    0x00002068   0x00000018   Code   RO           50    i.UART_OutString    uart.o
+    0x00002080   0x00000028   Code   RO         1084    i.__0sprintf$6      mc_w.l(printf6.o)
+    0x000020a8   0x00000008   Code   RO         1223    i.__aeabi_errno_addr  mc_w.l(errno.o)
+    0x000020b0   0x0000000e   Code   RO         1277    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x000020be   0x00000002   Code   RO         1278    i.__scatterload_null  mc_w.l(handlers.o)
+    0x000020c0   0x0000000e   Code   RO         1279    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x000020ce   0x00000002   PAD
+    0x000020d0   0x000002f4   Code   RO         1089    i._printf_core      mc_w.l(printf6.o)
+    0x000023c4   0x00000026   Code   RO         1090    i._printf_post_padding  mc_w.l(printf6.o)
+    0x000023ea   0x00000030   Code   RO         1091    i._printf_pre_padding  mc_w.l(printf6.o)
+    0x0000241a   0x0000000a   Code   RO         1093    i._sputc            mc_w.l(printf6.o)
+    0x00002424   0x000001b0   Code   RO          772    i.alarm             controller.o
+    0x000025d4   0x00000056   Code   RO          282    i.commandList       st7735.o
+    0x0000262a   0x00000002   PAD
+    0x0000262c   0x00000184   Code   RO          283    i.commonInit        st7735.o
+    0x000027b0   0x00000028   Code   RO           53    i.copyHardwareToSoftware  uart.o
+    0x000027d8   0x00000028   Code   RO          596    i.copyHardwareToSoftware5  esp8266.o
+    0x00002800   0x0000002c   Code   RO           54    i.copySoftwareToHardware  uart.o
+    0x0000282c   0x0000002c   Code   RO          597    i.copySoftwareToHardware5  esp8266.o
+    0x00002858   0x0000001c   Code   RO          284    i.deselect          st7735.o
+    0x00002874   0x00000128   Code   RO          773    i.display           controller.o
+    0x0000299c   0x000000c4   Code   RO          829    i.drawCircle        line.o
+    0x00002a60   0x00000130   Code   RO          830    i.drawClockDigits   line.o
+    0x00002b90   0x000000b8   Code   RO          831    i.drawHourHand      line.o
+    0x00002c48   0x00000078   Code   RO          832    i.drawMinuteHand    line.o
+    0x00002cc0   0x00000074   Code   RO          833    i.drawSecondHand    line.o
+    0x00002d34   0x000000ec   Code   RO          174    i.main              blynk.o
+    0x00002e20   0x00000144   Code   RO          774    i.menu              controller.o
+    0x00002f64   0x00000012   Code   RO          289    i.pushColor         st7735.o
+    0x00002f76   0x00000002   PAD
+    0x00002f78   0x00000074   Code   RO          290    i.setAddrWindow     st7735.o
+    0x00002fec   0x00000144   Code   RO          775    i.time              controller.o
+    0x00003130   0x00000038   Code   RO          291    i.writecommand      st7735.o
+    0x00003168   0x00000020   Code   RO          292    i.writedata         st7735.o
+    0x00003188   0x00000842   Data   RO          294    .constdata          st7735.o
+    0x000039ca   0x00000210   Data   RO          835    .constdata          line.o
+    0x00003bda   0x00000081   Data   RO         1244    .constdata          mc_w.l(ctype_o.o)
+    0x00003c5b   0x00000001   PAD
+    0x00003c5c   0x00000004   Data   RO         1245    .constdata          mc_w.l(ctype_o.o)
+    0x00003c60   0x00000020   Data   RO         1275    Region$$Table       anon$$obj.o
 
 
     Execution Region ER_RW (Base: 0x20000000, Size: 0x00000118, Max: 0xffffffff, ABSOLUTE)
@@ -1352,16 +1443,14 @@ Memory Map of the image
     0x20000114   0x00000004   Data   RW         1226    .data               mc_w.l(errno.o)
 
 
-    Execution Region ER_ZI (Base: 0x20000118, Size: 0x00000810, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Base: 0x20000118, Size: 0x00000800, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x20000118   0x00000080   Zero   RW           55    .bss                uart.o
     0x20000198   0x00000040   Zero   RW          175    .bss                blynk.o
-    0x200001d8   0x0000000c   Zero   RW          293    .bss                st7735.o
-    0x200001e4   0x00000340   Zero   RW          598    .bss                esp8266.o
-    0x20000524   0x00000004   PAD
-    0x20000528   0x00000400   Zero   RW            1    STACK               startup.o
+    0x200001d8   0x00000340   Zero   RW          598    .bss                esp8266.o
+    0x20000518   0x00000400   Zero   RW            1    STACK               startup.o
 
 
 ==============================================================================
@@ -1371,13 +1460,14 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       248         56          0          0          0       1127   alarm.o
-       580        162          0         44         64       3521   blynk.o
-       168         56          0         10          0       1252   controller.o
+       272         64          0          0          0       1806   alarm.o
+       584        156          0         44         64       3533   blynk.o
+      1576        534          0         10          0       4496   controller.o
       1982        618          0        148        832      10224   esp8266.o
+      1614         24        528          0          0       5640   line.o
        124          6          0          0          0       4627   pll.o
        108         24          0          0          0       1063   portf.o
-      2022        234       2114         44         12      14283   st7735.o
+      2082        216       2114         44          0      14450   st7735.o
        672        622          0          0       1024        900   startup.o
        252         42          0          0          0       1244   timer0a.o
        120         28          0          4          0       1292   timer2.o
@@ -1385,9 +1475,9 @@ Image component sizes
        744        120          0         16        128       6621   uart.o
 
     ----------------------------------------------------------------------
-      7146       1998       2146        272       2064      47446   Object Totals
+     10260       2484       2674        272       2048      57188   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         6          0          0          2          4          0   (incl. Padding)
+        10          0          0          2          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1408,22 +1498,35 @@ Image component sizes
          8          4          0          4          0         68   errno.o
         30          0          0          0          0          0   handlers.o
         36          8          0          0          0         68   init.o
+         0          0          0          0          0          0   iusefp.o
+        30          0          0          0          0         68   llshl.o
+        36          0          0          0          0         68   llsshr.o
+        32          0          0          0          0         68   llushr.o
+       892         12          0          0          0        420   printf6.o
         18          0          0          0          0         68   strcpy.o
         68          6          0          4          0         80   strtok.o
        112          0          0          0          0         88   strtol.o
+        44          0          0          0          0         80   uidiv.o
+        40          2          0          0          0         68   cdcmple.o
+        40          2          0          0          0         68   cdrcmple.o
+       334          0          0          0          0        148   dadd.o
+       190          0          0          0          0        176   depilogue.o
+        34          0          0          0          0         76   dflti.o
+       228          0          0          0          0         96   dmul.o
 
     ----------------------------------------------------------------------
-       518         30        134          8          0        680   Library Totals
-         6          0          1          0          0          0   (incl. Padding)
+      2420         46        134          8          0       2016   Library Totals
+         8          0          1          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
 
-       512         30        133          8          0        680   mc_w.l
+      1546         42        133          8          0       1384   mc_w.l
+       866          4          0          0          0        632   mf_w.l
 
     ----------------------------------------------------------------------
-       518         30        134          8          0        680   Library Totals
+      2420         46        134          8          0       2016   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -1432,15 +1535,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      7664       2028       2280        280       2064      44330   Grand Totals
-      7664       2028       2280        280       2064      44330   ELF Image Totals
-      7664       2028       2280        280          0          0   ROM Totals
+     12680       2530       2808        280       2048      53848   Grand Totals
+     12680       2530       2808        280       2048      53848   ELF Image Totals
+     12680       2530       2808        280          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 9944 (   9.71kB)
-    Total RW  Size (RW Data + ZI Data)              2344 (   2.29kB)
-    Total ROM Size (Code + RO Data + RW Data)      10224 (   9.98kB)
+    Total RO  Size (Code + RO Data)                15488 (  15.13kB)
+    Total RW  Size (RW Data + ZI Data)              2328 (   2.27kB)
+    Total ROM Size (Code + RO Data + RW Data)      15768 (  15.40kB)
 
 ==============================================================================
 

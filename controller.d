@@ -7,3 +7,5 @@
 .\controller.o: alarm.h
 .\controller.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
 .\controller.o: line.h
+.\controller.o: esp8266.h
+.\controller.o: UART.h

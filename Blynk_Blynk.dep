@@ -8,7 +8,7 @@ F (.\UART.c)(0x5BB30161)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
 I (../inc/tm4c123gh6pm.h)(0x5388C2DA)
 I (UART.h)(0x5BB30161)
-F (.\Blynk.c)(0x5BB30CED)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_LM4F120H5QR -DTM4C123GH6PM-o .\blynk.o --omf_browse .\blynk.crf --depend .\blynk.d)
+F (.\Blynk.c)(0x5BB30F12)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_LM4F120H5QR -DTM4C123GH6PM-o .\blynk.o --omf_browse .\blynk.crf --depend .\blynk.d)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
 I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C87C24)
 I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C87C24)
@@ -51,7 +51,7 @@ F (.\alarm.c)(0x5BB30161)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs
 I (alarm.h)(0x5BB30162)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
 I (../inc/tm4c123gh6pm.h)(0x5388C2DA)
-F (.\controller.c)(0x5BB308F3)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_LM4F120H5QR -DTM4C123GH6PM-o .\controller.o --omf_browse .\controller.crf --depend .\controller.d)
+F (.\controller.c)(0x5BB30F26)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_LM4F120H5QR -DTM4C123GH6PM-o .\controller.o --omf_browse .\controller.crf --depend .\controller.d)
 I (controller.h)(0x5BB303B1)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
 I (ST7735.h)(0x5BB30BC1)
@@ -60,6 +60,8 @@ I (../inc/tm4c123gh6pm.h)(0x5388C2DA)
 I (alarm.h)(0x5BB30162)
 I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C87C24)
 I (line.h)(0x5BB30162)
+I (esp8266.h)(0x5BB30162)
+I (UART.h)(0x5BB30161)
 F (.\line.c)(0x5BB30162)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_LM4F120H5QR -DTM4C123GH6PM-o .\line.o --omf_browse .\line.crf --depend .\line.d)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
 I (line.h)(0x5BB30162)
