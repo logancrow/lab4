@@ -37,6 +37,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdlib.h>
+#include "stdio.h"
 #include "inc/tm4c123gh6pm.h"
 #include "ST7735.h"
 #include "PLL.h"
@@ -64,6 +65,8 @@ char Pin_Integer[8]  = "0000";     //
 char Pin_Float[8]    = "0.0000";   //
 uint32_t pin_num; 
 uint32_t pin_int;
+uint32_t arrow_num;
+uint32_t arrow_int;
  
 // ----------------------------------- TM4C_to_Blynk ------------------------------
 // Send data to the Blynk App
@@ -191,6 +194,16 @@ int main(void){
   // Send data back to Blynk App every 1/2 second
   EnableInterrupts();
 	uint8_t CS = main_menu;
+	
+	int i = 0;
+	while(1) {
+		//ST7735_OutUDec(pin_num);
+		ST7735_SetCursor(0,);
+		ST7735_OutUDec(pin_int);
+		if (i > 150) i = 0;
+		else i++;
+	}
+	
   while(1) {   
     if(CS == main_menu) CS = menu();
 		if(CS == show_display) CS = display();

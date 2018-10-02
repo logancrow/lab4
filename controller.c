@@ -11,6 +11,8 @@
 #include "alarm.h"
 #include "stdio.h"
 #include "line.h"
+#include "esp8266.h"
+#include "UART.h"
 
 uint8_t hours;
 uint8_t minutes;
@@ -94,6 +96,7 @@ int menu(){
 
 int display(){
 	DelayWait10ms(50);            //debounce
+	int exit_flag = 0;
 	while(!sw1){
 		ST7735_SetCursor(0,0);
 		ST7735_OutString("Main Menu:  sw1");
@@ -109,7 +112,8 @@ int display(){
 		drawMinuteHand(minutes);
 		if(hours >= 12){          //military time
 			drawHourHand(hours - 12,minutes);
-		}else{
+		}
+		else{
 			drawHourHand(hours,minutes);
 		}
 		if((hours == alarm_hours) && (minutes == alarm_minutes) && (seconds == 0) && alarm_enable){  //if alarm time is reached, turn it on
@@ -121,8 +125,9 @@ int display(){
 	}
 	ST7735_FillScreen(ST7735_BLACK);   //clear screen
 	//return to next state
-	if(sw1) return main_menu;
-	else return show_display;
+	/*if(sw1) return main_menu;
+	else return show_display;*/
+	return main_menu;
 }
 	
 int time(){
@@ -178,13 +183,19 @@ int alarm(){
 		ST7735_OutString(time);
 		if(sw2){
 			DelayWait10ms(10);        //debounce
-			alarm_hours = (alarm_hours + 1)%24;
-			ST7735_FillScreen(ST7735_BLACK);   //clear screen
+			alarm_hours = (pin_int + 1)%24;
+			ST7735_SetCursor(0,4);
+			ST7735_OutString("Set_Alarm: ");
+			sprintf(time,"%02d:%02d",alarm_hours,alarm_minutes);
+			//ST7735_FillScreen(ST7735_BLACK);   //clear screen
 		}
 		if(sw3){
 			DelayWait10ms(10);        //debounce
 			alarm_minutes = (alarm_minutes +1)%60;
-			ST7735_FillScreen(ST7735_BLACK);   //clear screen
+			ST7735_SetCursor(0,4);
+			ST7735_OutString("Set_Alarm: ");
+			sprintf(time,"%02d:%02d",alarm_hours,alarm_minutes);
+			//ST7735_FillScreen(ST7735_BLACK);   //clear screen
 		}		
 	}
 	ST7735_FillScreen(ST7735_BLACK);   //clear screen	

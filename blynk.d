@@ -2,6 +2,7 @@
 .\blynk.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
 .\blynk.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
 .\blynk.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\blynk.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
 .\blynk.o: ..\inc/tm4c123gh6pm.h
 .\blynk.o: ST7735.h
 .\blynk.o: PLL.h
